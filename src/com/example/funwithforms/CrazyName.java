@@ -13,16 +13,17 @@ public class CrazyName extends Activity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		System.out.println("Inside of onCreate");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_crazy_name);
 		
 		Toast.makeText(this, "All your base are belong to us!!", Toast.LENGTH_SHORT).show();
 		
-		myHandler.postDelayed(new Runnable() {
-            public void run() {
-                streamText();
-            }
-        }, 3000);
+//		myHandler.postDelayed(new Runnable() {
+//            public void run() {
+//                streamText();
+//            }
+//        }, 3000);
 	    
 	}
 
