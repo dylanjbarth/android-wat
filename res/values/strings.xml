@@ -7,6 +7,7 @@
     <string name="name_hint">Type your name here</string>
     <string name="submit">Submit!</string>
     <string name="craziness"></string>
-    
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_crazy_name">CrazyName</string>
 
 </resources>
