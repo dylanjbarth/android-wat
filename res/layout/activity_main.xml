@@ -8,27 +8,56 @@
         android:id="@+id/gender_select"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="false"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
         android:text="@string/gender_select"
         android:textSize="40sp" />
+
+    <RadioButton
+        android:id="@+id/male"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/gender_select"
+        android:layout_marginLeft="20dp"
+        android:onClick="onRadioButtonClicked"
+        android:text="@string/male" />
+
+    <RadioButton
+        android:id="@+id/female"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/male"
+        android:layout_marginLeft="20dp"
+        android:onClick="onRadioButtonClicked"
+        android:text="@string/female" />
 
     <TextView
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginTop="21dp"
+        android:layout_toLeftOf="@+id/submit"
         android:text="@string/welcome"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/salutation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/name"
+        android:layout_alignRight="@+id/gender_select"
+        android:text="@string/salutation"
         android:textSize="40sp" />
 
     <EditText
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/female"
         android:layout_below="@+id/welcome"
-        android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="@string/name_hint"
         android:inputType="text" />
@@ -39,34 +68,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/name"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
         android:onClick="goCrazy"
         android:text="@string/submit" />
-
-    <RadioButton
-        android:id="@+id/female"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/male"
-        android:layout_below="@+id/male"
-        android:onClick="onRadioButtonClicked"
-        android:text="@string/female" />
-
-    <RadioButton
-        android:id="@+id/male"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/welcome"
-        android:layout_below="@+id/gender_select"
-        android:onClick="onRadioButtonClicked"
-        android:text="@string/male" />
-
-    <TextView
-        android:id="@+id/salutation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/name"
-        android:layout_toRightOf="@+id/submit"
-        android:text="@string/salutation"
-        android:textSize="40sp" />
 
 </RelativeLayout>
