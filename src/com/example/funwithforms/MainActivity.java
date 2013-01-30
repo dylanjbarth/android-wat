@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
@@ -50,6 +52,27 @@ public class MainActivity extends Activity {
     	
     	intent.putExtra(CRAZY_STRING, crazyString);
     	startActivity(intent);
+    }
+    
+    public void onRadioButtonClicked(View view) {
+    	// Is the button now checked?
+    	boolean checked = ((RadioButton) view).isChecked();
+    	
+    	// Get text view to insert
+    	TextView textView = (TextView)findViewById(R.id.salutation);
+    	
+    	// Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.male:
+                if (checked)
+            	    textView.setText(" sir!");
+                break;
+            case R.id.female:
+                if (checked)
+                	textView.setText(" mam!");
+                break;
+    	
+        }
     }
     
 }

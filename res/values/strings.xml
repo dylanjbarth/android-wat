@@ -2,12 +2,15 @@
 <resources>
 
     <string name="app_name">funwithforms</string>
-    <string name="welcome">Hello!</string>
+    <string name="gender_select">I am a...</string>
+    <string name="welcome">Hello</string>
+    <string name="salutation">...</string>
     <string name="menu_settings">Settings</string>
     <string name="name_hint">Type your name here</string>
     <string name="submit">Submit!</string>
-    <string name="craziness"></string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_crazy_name">CrazyName</string>
+    <string name="male">man</string>
+    <string name="female">woman</string>
 
 </resources>
