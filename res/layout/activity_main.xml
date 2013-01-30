@@ -14,44 +14,39 @@
         android:text="@string/gender_select"
         android:textSize="40sp" />
 
-    <RadioButton
-        android:id="@+id/male"
+    <RadioGroup
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignLeft="@+id/gender_select"
         android:layout_below="@+id/gender_select"
-        android:layout_marginLeft="20dp"
-        android:onClick="onRadioButtonClicked"
-        android:text="@string/male" />
+        android:layout_marginTop="38dp"
+        android:orientation="vertical" >
 
-    <RadioButton
-        android:id="@+id/female"
-        android:layout_width="wrap_content"
+        <RadioButton
+            android:id="@+id/male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/male" />
+
+        <RadioButton
+            android:id="@+id/female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/female" />
+    </RadioGroup>
+
+	<TextView
+        android:id="@+id/welcome"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/male"
-        android:layout_marginLeft="20dp"
-        android:onClick="onRadioButtonClicked"
-        android:text="@string/female" />
-
-    <TextView
-        android:id="@+id/welcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/submit"
         android:text="@string/welcome"
         android:textSize="40sp" />
-
-    <TextView
-        android:id="@+id/salutation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/name"
-        android:layout_alignRight="@+id/gender_select"
-        android:text="@string/salutation"
-        android:textSize="40sp" />
-
+    
     <EditText
         android:id="@+id/name"
         android:layout_width="wrap_content"
@@ -71,5 +66,6 @@
         android:layout_marginTop="24dp"
         android:onClick="goCrazy"
         android:text="@string/submit" />
+
 
 </RelativeLayout>

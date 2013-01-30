@@ -4,7 +4,6 @@
     <string name="app_name">funwithforms</string>
     <string name="gender_select">I am a...</string>
     <string name="welcome">Hello</string>
-    <string name="salutation">...</string>
     <string name="menu_settings">Settings</string>
     <string name="name_hint">Type your name here</string>
     <string name="submit">Submit!</string>

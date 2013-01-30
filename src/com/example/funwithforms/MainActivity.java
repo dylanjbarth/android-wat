@@ -59,19 +59,18 @@ public class MainActivity extends Activity {
     	boolean checked = ((RadioButton) view).isChecked();
     	
     	// Get text view to insert
-    	TextView textView = (TextView)findViewById(R.id.salutation);
+    	TextView textView = (TextView)findViewById(R.id.welcome);
     	
     	// Check which radio button was clicked
         switch(view.getId()) {
             case R.id.male:
                 if (checked)
-            	    textView.setText(" sir!");
+            	    textView.setText("Hello sir!");
                 break;
             case R.id.female:
                 if (checked)
-                	textView.setText(" mam!");
+                	textView.setText("Hello mam!");
                 break;
-    	
         }
     }
     
