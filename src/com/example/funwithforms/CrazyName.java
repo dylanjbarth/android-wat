@@ -1,30 +1,47 @@
 package com.example.funwithforms;
 
+import java.util.Random;
+
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.Menu;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class CrazyName extends Activity {
-    private Handler myHandler = new Handler();
-	
+	final Context context = this;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		System.out.println("Inside of onCreate");
+		System.out.println("onCreate()");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_crazy_name);
-		
-		Toast.makeText(this, "All your base are belong to us!!", Toast.LENGTH_SHORT).show();
-		
-//		myHandler.postDelayed(new Runnable() {
-//            public void run() {
-//                streamText();
-//            }
-//        }, 3000);
-	    
+
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+				context);
+		// set title
+		alertDialogBuilder.setTitle("Warning:");
+
+		// set dialog message
+		alertDialogBuilder
+				.setMessage("All your base are belong to us.")
+				.setCancelable(false)
+				.setPositiveButton("I know :(",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int id) {
+								// call streamText
+								streamText();
+							}
+						});
+
+		// create alert dialog
+		AlertDialog alertDialog = alertDialogBuilder.create();
+
+		// show it
+		alertDialog.show();
 	}
 
 	@Override
@@ -33,25 +50,34 @@ public class CrazyName extends Activity {
 		getMenuInflater().inflate(R.menu.activity_crazy_name, menu);
 		return true;
 	}
-	
-	public void streamText(){
+
+	public void streamText() {
+		System.out.println("streamText()");
 		// Get the text view
-	    TextView textView = (TextView)findViewById(R.id.crazy_name);
-	    
+		TextView textView = (TextView) findViewById(R.id.crazy_name);
+
 		// Get the crazyString from the intent, turn it into an array
-	    Intent intent = getIntent();
-	    String crazyString = intent.getStringExtra(MainActivity.CRAZY_STRING);
-	    String[] split = crazyString.split("");
-	    
-	    //Start rendering text
-	    int i = 0;
-	    while (true) {
-	    	textView.append(split[i]);
-	    	if (i>=99){
-	    		i = 0;
-	    		break;
-	    	}
-	    }
+		Intent intent = getIntent();
+		String crazyString = intent.getStringExtra(MainActivity.CRAZY_STRING);
+		String[] split = crazyString.split("");
+		Integer length = crazyString.length();
+
+		// Start rendering text randomly
+		Random rand = new Random();
+		int i = 0;
+		int j = 0;
+		while (true) {
+			Integer nextChar = rand.nextInt(length);
+			textView.append(split[nextChar]);
+			if (i >= 99) {
+				i = 0;
+				j ++;
+				if (j >= 50) {
+					break;
+				}
+			}
+			i++;
+		}
 	}
 
 }
