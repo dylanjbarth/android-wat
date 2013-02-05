@@ -47,9 +47,9 @@ public class MainActivity extends Activity {
     	
     	// Convert crazy array to string and render to TextView
     	String crazyString = new String(crazyArray);
-    	//TextView crazyOutput = (TextView)findViewById(R.id.craziness);
-    	//crazyOutput.setText(crazyString);   
-    	
+    	crazyString.replaceAll("\\W", "");
+    	// get rid of white space
+    	crazyString = crazyString.replace(" ", "");
     	intent.putExtra(CRAZY_STRING, crazyString);
     	startActivity(intent);
     }
