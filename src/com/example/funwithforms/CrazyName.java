@@ -55,23 +55,6 @@ public class CrazyName extends Activity {
 		return true;
 	}
 
-	public void streamText() {
-		// Get context 
-		TextView textView = (TextView) findViewById(R.id.crazy_name);
-		Intent intent = getIntent();
-		String crazyString = intent.getStringExtra(MainActivity.CRAZY_STRING);
-		
-		// Set stage for looping
-		String[] split = crazyString.split("");
-		Integer length = crazyString.length();
-		
-		Random rand = new Random();
-		for(int i=0; i < 500; i++){
-			Integer nextChar = rand.nextInt(length);
-			textView.append(split[nextChar]); // except send this in a message to be appended
-		}
-	}
-
 	// Handler functions
 	public void startHandler() {
 		super.onStart();
@@ -88,13 +71,15 @@ public class CrazyName extends Activity {
 					Integer length = crazyString.length();
 					
 					Random rand = new Random();
-					for(int i=0; i < 500; i++){
-						Integer nextChar = rand.nextInt(length);
-						String c = split[nextChar];
+					for(int i=0; i < 2000; i++){
+						int char1 = rand.nextInt(length);
+						int char2 = rand.nextInt(length);
+						String c = split[char1];
+						c += split[char2];
 						Message msg = handler.obtainMessage();
 						msg.obj = c;
 						handler.sendMessage(msg); // want to send string c to be appended to text view
-						Thread.sleep(50);
+						Thread.sleep(3);
 					}
 				}
 				catch (Throwable t) {
