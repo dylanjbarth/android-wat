@@ -65,7 +65,7 @@ public class FormMaze extends Activity {
 		int max = bar.getMax();
 		if (prog >= max){
 			Context context = getApplicationContext();
-			CharSequence text = "100101010010010010010011!!!\n(Translation: we aren't so different, you and I..)";
+			CharSequence text = "010101110110010100100000011000010111001001100101011011100010011101110100001000000111001101101111001000000110010001101001011001100110011001100101011100100110010101101110011101000010110000100000011110010110111101110101001000000110000101101110011001000010000001001001001011100010111000101110";
 			int duration = Toast.LENGTH_SHORT;
 			Toast toast = Toast.makeText(context, text, duration);
 			toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 0);
@@ -73,7 +73,6 @@ public class FormMaze extends Activity {
 			nextScreen();
 		}
 	}
-	
 	public void nextScreen(){
 		Intent intent = new Intent(this, BinaryStream.class);
 		startActivity(intent);
