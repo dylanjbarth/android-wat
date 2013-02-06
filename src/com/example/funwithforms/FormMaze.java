@@ -55,8 +55,8 @@ public class FormMaze extends Activity {
 	public void updateBar(View view){
 		System.out.println("updateBar()");
 		Random rand = new Random();
-		int increment = rand.nextInt(10);
-		if (increment > 4) {
+		int increment = rand.nextInt(20);
+		if (increment > 8) {
 			bar.incrementProgressBy(increment);
 		} else {
 			bar.incrementProgressBy(-increment);

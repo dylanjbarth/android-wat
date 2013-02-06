@@ -24,7 +24,11 @@ public class BinaryStream extends Activity {
 		public void handleMessage(Message msg){
 			TextView view = (TextView)findViewById(R.id.binary);
 			String s = Integer.toString(msg.what);
-			view.append(s);
+			if (msg.what <= 1){
+				view.append(s);
+			} else {
+				view.setText("");
+			}
 		}
 	};
 	AtomicBoolean isRunning=new AtomicBoolean(false);
@@ -49,12 +53,19 @@ public class BinaryStream extends Activity {
 			public void run() {
 				try {
 					Random rand = new Random();
-					for(int i=0; i < 1500; i++){
-						boolean c = rand.nextBoolean();
-						int n = c? 1 : 0;
+					while (true) {
+						int length = rand.nextInt(500) + 500;
+						for(int i=0; i < length; i++){
+							boolean c = rand.nextBoolean();
+							int n = c? 1 : 0;
+							Message msg = handler.obtainMessage();
+							msg.what = n;
+							handler.sendMessage(msg); // want to send string c to be appended to text view
+							Thread.sleep(3);
+						}
 						Message msg = handler.obtainMessage();
-						msg.what = n;
-						handler.sendMessage(msg); // want to send string c to be appended to text view
+						msg.what = 2;
+						handler.sendMessage(msg); // to delete textView
 						Thread.sleep(3);
 					}
 				}
