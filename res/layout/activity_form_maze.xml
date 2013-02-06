@@ -1,0 +1,71 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FormMaze" >
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="36dp" 
+        android:onClick="updateBar"/>
+
+    <CheckBox
+        android:id="@+id/CheckBox02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="52dp"
+        android:layout_toLeftOf="@+id/checkBox1" 
+        android:onClick="updateBar"/>
+
+    <CheckBox
+        android:id="@+id/CheckBox01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="22dp"
+        android:layout_toRightOf="@+id/checkBox1" 
+        android:onClick="updateBar"/>
+
+    <CheckBox
+        android:id="@+id/CheckBox05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/CheckBox02"
+        android:layout_below="@+id/CheckBox02"
+        android:layout_marginTop="69dp" 
+        android:onClick="updateBar"/>
+
+    <CheckBox
+        android:id="@+id/CheckBox04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/CheckBox05"
+        android:layout_alignBottom="@+id/CheckBox05"
+        android:layout_alignLeft="@+id/checkBox1" 
+        android:onClick="updateBar"/>
+
+    <CheckBox
+        android:id="@+id/CheckBox03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/CheckBox04"
+        android:layout_alignBottom="@+id/CheckBox04"
+        android:layout_alignLeft="@+id/CheckBox01" 
+        android:onClick="updateBar"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/CheckBox02"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/CheckBox01"
+        android:layout_marginTop="81dp" />
+
+</RelativeLayout>

@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.Menu;
+import android.view.View;
 import android.widget.TextView;
 
 public class CrazyName extends Activity {
@@ -30,7 +31,7 @@ public class CrazyName extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_crazy_name);
 		streamingText = (TextView) findViewById(R.id.crazy_name);
-		
+		startHandler();
 		// alert dialog
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
 		alertDialogBuilder.setTitle("Warning:");
@@ -41,7 +42,7 @@ public class CrazyName extends Activity {
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int id) {
 								// start the handler here! 
-								startHandler();
+								nextScreen();
 							}
 						});
 		AlertDialog alertDialog = alertDialogBuilder.create();
@@ -71,7 +72,7 @@ public class CrazyName extends Activity {
 					Integer length = crazyString.length();
 					
 					Random rand = new Random();
-					for(int i=0; i < 2000; i++){
+					for(int i=0; i < 1000; i++){
 						int char1 = rand.nextInt(length);
 						int char2 = rand.nextInt(length);
 						String c = split[char1];
@@ -92,8 +93,16 @@ public class CrazyName extends Activity {
 		background.start();
 	}
 	
+	
 	public void onStop() {
 		super.onStop();
 		isRunning.set(false);
 	}
+	
+	public void nextScreen(){
+		Intent intent = new Intent(this, FormMaze.class);
+		startActivity(intent);
+	};
+	
+	
 }

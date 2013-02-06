@@ -26,6 +26,10 @@
             android:name="com.example.funwithforms.CrazyName"
             android:label="@string/title_activity_crazy_name" >
         </activity>
+        <activity
+            android:name="com.example.funwithforms.FormMaze"
+            android:label="@string/title_activity_form_maze" >
+        </activity>
     </application>
 
 </manifest>

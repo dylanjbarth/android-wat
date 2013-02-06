@@ -28,6 +28,26 @@ public class MainActivity extends Activity {
         return true;
     }
     
+    public void onRadioButtonClicked(View view) {
+    	// Is the button now checked?
+    	boolean checked = ((RadioButton) view).isChecked();
+    	
+    	// Get text view to insert
+    	TextView textView = (TextView)findViewById(R.id.welcome);
+    	
+    	// Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.male:
+                if (checked)
+            	    textView.setText("Hello sir!");
+                break;
+            case R.id.female:
+                if (checked)
+                	textView.setText("Hello mam!");
+                break;
+        }
+    }
+    
     public void goCrazy(View view) {
     	Intent intent = new Intent(this, CrazyName.class);
     	
@@ -52,26 +72,6 @@ public class MainActivity extends Activity {
     	crazyString = crazyString.replace(" ", "");
     	intent.putExtra(CRAZY_STRING, crazyString);
     	startActivity(intent);
-    }
-    
-    public void onRadioButtonClicked(View view) {
-    	// Is the button now checked?
-    	boolean checked = ((RadioButton) view).isChecked();
-    	
-    	// Get text view to insert
-    	TextView textView = (TextView)findViewById(R.id.welcome);
-    	
-    	// Check which radio button was clicked
-        switch(view.getId()) {
-            case R.id.male:
-                if (checked)
-            	    textView.setText("Hello sir!");
-                break;
-            case R.id.female:
-                if (checked)
-                	textView.setText("Hello mam!");
-                break;
-        }
     }
     
 }

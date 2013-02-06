@@ -14,23 +14,32 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
+        public static final int CheckBox01=0x7f070004;
+        public static final int CheckBox02=0x7f070003;
+        public static final int CheckBox03=0x7f070007;
+        public static final int CheckBox04=0x7f070006;
+        public static final int CheckBox05=0x7f070005;
+        public static final int checkBox1=0x7f070002;
         public static final int crazy_name=0x7f070001;
-        public static final int female=0x7f070004;
-        public static final int gender_select=0x7f070002;
-        public static final int male=0x7f070003;
-        public static final int menu_settings=0x7f070008;
-        public static final int name=0x7f070006;
+        public static final int female=0x7f07000b;
+        public static final int gender_select=0x7f070009;
+        public static final int male=0x7f07000a;
+        public static final int menu_settings=0x7f07000f;
+        public static final int name=0x7f07000d;
+        public static final int progressBar1=0x7f070008;
         public static final int relLayout=0x7f070000;
-        public static final int submit=0x7f070007;
-        public static final int welcome=0x7f070005;
+        public static final int submit=0x7f07000e;
+        public static final int welcome=0x7f07000c;
     }
     public static final class layout {
         public static final int activity_crazy_name=0x7f030000;
-        public static final int activity_main=0x7f030001;
+        public static final int activity_form_maze=0x7f030001;
+        public static final int activity_main=0x7f030002;
     }
     public static final class menu {
         public static final int activity_crazy_name=0x7f060000;
-        public static final int activity_main=0x7f060001;
+        public static final int activity_form_maze=0x7f060001;
+        public static final int activity_main=0x7f060002;
     }
     public static final class string {
         public static final int app_name=0x7f040000;
@@ -42,6 +51,7 @@ public final class R {
         public static final int name_hint=0x7f040004;
         public static final int submit=0x7f040005;
         public static final int title_activity_crazy_name=0x7f040007;
+        public static final int title_activity_form_maze=0x7f04000a;
         public static final int welcome=0x7f040002;
     }
     public static final class style {

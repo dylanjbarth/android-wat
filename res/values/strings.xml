@@ -11,5 +11,6 @@
     <string name="title_activity_crazy_name">CrazyName</string>
     <string name="male">man</string>
     <string name="female">woman</string>
+    <string name="title_activity_form_maze">FormMaze</string>
 
 </resources>
