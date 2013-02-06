@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
@@ -32,7 +33,6 @@ public class FormMaze extends Activity {
 						.setPositiveButton("010010010010011101101101001000000110",
 								new DialogInterface.OnClickListener() {
 									public void onClick(DialogInterface dialog, int id) {
-										// start the handler here! 
 										Context context = getApplicationContext();
 										CharSequence text = "Human detected!!!";
 										int duration = Toast.LENGTH_LONG;
@@ -61,6 +61,22 @@ public class FormMaze extends Activity {
 		} else {
 			bar.incrementProgressBy(-increment);
 		}
+		int prog = bar.getProgress();
+		int max = bar.getMax();
+		if (prog >= max){
+			Context context = getApplicationContext();
+			CharSequence text = "100101010010010010010011!!!\n(Translation: we aren't so different, you and I..)";
+			int duration = Toast.LENGTH_SHORT;
+			Toast toast = Toast.makeText(context, text, duration);
+			toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 0);
+			toast.show();
+			nextScreen();
+		}
+	}
+	
+	public void nextScreen(){
+		Intent intent = new Intent(this, BinaryStream.class);
+		startActivity(intent);
 	}
 
 }

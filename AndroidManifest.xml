@@ -30,6 +30,10 @@
             android:name="com.example.funwithforms.FormMaze"
             android:label="@string/title_activity_form_maze" >
         </activity>
+        <activity
+            android:name="com.example.funwithforms.BinaryStream"
+            android:label="@string/title_activity_binary_stream" >
+        </activity>
     </application>
 
 </manifest>

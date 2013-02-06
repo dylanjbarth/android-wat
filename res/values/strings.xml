@@ -12,5 +12,6 @@
     <string name="male">man</string>
     <string name="female">woman</string>
     <string name="title_activity_form_maze">FormMaze</string>
+    <string name="title_activity_binary_stream">BinaryStream</string>
 
 </resources>

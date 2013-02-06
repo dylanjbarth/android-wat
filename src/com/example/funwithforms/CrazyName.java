@@ -3,6 +3,7 @@ package com.example.funwithforms;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -12,9 +13,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.Menu;
-import android.view.View;
 import android.widget.TextView;
 
+@SuppressLint("HandlerLeak")
 public class CrazyName extends Activity {
 	final Context context = this;
 	TextView streamingText;
