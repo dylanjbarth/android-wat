@@ -22,7 +22,29 @@ public class CrazyName extends Activity {
 	Handler handler = new Handler() {
 		@Override 
 		public void handleMessage(Message msg){
-			streamingText.append((CharSequence) msg.obj);
+			TextView view = (TextView)findViewById(R.id.crazy_name);
+//			streamingText.append((CharSequence) msg.obj);
+			if (msg.what <= 1){
+				view.append((CharSequence) msg.obj);
+			} else if (msg.what == 2 ){
+				view.setText("");
+			} else {
+				// alert dialog
+				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+				alertDialogBuilder.setTitle("Success:");
+				alertDialogBuilder
+						.setMessage("All your base are belong to us.")
+						.setCancelable(false)
+						.setPositiveButton(":(",
+								new DialogInterface.OnClickListener() {
+									public void onClick(DialogInterface dialog, int id) {
+										nextScreen();
+									}
+								});
+				AlertDialog alertDialog = alertDialogBuilder.create();
+				alertDialog.show();
+				System.out.println("After alert dialog");
+			}
 		}
 	};
 	AtomicBoolean isRunning=new AtomicBoolean(false);
@@ -32,18 +54,16 @@ public class CrazyName extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_crazy_name);
 		streamingText = (TextView) findViewById(R.id.crazy_name);
-		startHandler();
 		// alert dialog
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
 		alertDialogBuilder.setTitle("Warning:");
 		alertDialogBuilder
-				.setMessage("All your base are belong to us.")
+				.setMessage("Identity cracking in progress...")
 				.setCancelable(false)
-				.setPositiveButton("I know :(",
+				.setPositiveButton("Oh dear...",
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int id) {
-								// start the handler here! 
-								nextScreen();
+								startHandler();
 							}
 						});
 		AlertDialog alertDialog = alertDialogBuilder.create();
@@ -73,16 +93,26 @@ public class CrazyName extends Activity {
 					Integer length = crazyString.length();
 					
 					Random rand = new Random();
-					for(int i=0; i < 1000; i++){
-						int char1 = rand.nextInt(length);
-						int char2 = rand.nextInt(length);
-						String c = split[char1];
-						c += split[char2];
+					for(int j=0; j<4; j++){
+						for(int i=0; i < 700; i++){
+							int char1 = rand.nextInt(length);
+							int char2 = rand.nextInt(length);
+							String c = split[char1];
+							c += split[char2];
+							Message msg = handler.obtainMessage();
+							msg.obj = c;
+							handler.sendMessage(msg); // want to send string c to be appended to text view
+							Thread.sleep(3);
+						}
 						Message msg = handler.obtainMessage();
-						msg.obj = c;
-						handler.sendMessage(msg); // want to send string c to be appended to text view
+						msg.what = 2;
+						handler.sendMessage(msg); // to delete textView
 						Thread.sleep(3);
 					}
+					Message msg = handler.obtainMessage();
+					msg.what = 3;
+					handler.sendMessage(msg); // to throw alert dialog
+					
 				}
 				catch (Throwable t) {
 					// just end the background thread
