@@ -11,6 +11,9 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.CheckBox;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -28,9 +31,9 @@ public class FormMaze extends Activity {
 				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
 				alertDialogBuilder.setTitle("Warning:");
 				alertDialogBuilder
-						.setMessage("0100100001110101011011010110000101101110001000000110010001100101011101000110010101100011011101000110010101100100")
+						.setMessage("010010000111010101101101011000010110111000100000011001000110010101110100011001010110")
 						.setCancelable(false)
-						.setPositiveButton("010010010010011101101101001000000110",
+						.setPositiveButton("0100100100?",
 								new DialogInterface.OnClickListener() {
 									public void onClick(DialogInterface dialog, int id) {
 										Context context = getApplicationContext();
@@ -50,6 +53,30 @@ public class FormMaze extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.activity_form_maze, menu);
 		return true;
+	}
+	
+	public void moveCheckbox(View view){
+		Random rand = new Random();
+		int box = rand.nextInt(6) + 1;
+		int direction = rand.nextInt(4);
+		CheckBox c = (CheckBox) findViewById(R.id.checkBox1);
+		Animation a = AnimationUtils.loadAnimation(this, R.anim.up);
+		switch(box){
+			case 1: c = (CheckBox) findViewById(R.id.checkBox1);
+			case 2: c = (CheckBox) findViewById(R.id.CheckBox02);
+			case 3: c = (CheckBox) findViewById(R.id.CheckBox01);
+			case 4: c = (CheckBox) findViewById(R.id.CheckBox05);
+			case 5: c = (CheckBox) findViewById(R.id.CheckBox04);
+			case 6: c = (CheckBox) findViewById(R.id.CheckBox03);
+		}
+		switch(direction){
+			case 0: a = AnimationUtils.loadAnimation(this, R.anim.up);
+			case 1: a = AnimationUtils.loadAnimation(this, R.anim.down);
+			case 2: a = AnimationUtils.loadAnimation(this, R.anim.left);
+			case 3: a = AnimationUtils.loadAnimation(this, R.anim.right);
+		}
+		c.startAnimation(a);
+		updateBar(view);
 	}
 	
 	public void updateBar(View view){
