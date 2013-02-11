@@ -13,5 +13,6 @@
     <string name="female">woman</string>
     <string name="title_activity_form_maze">FormMaze</string>
     <string name="title_activity_binary_stream">BinaryStream</string>
+    <string name="title_activity_bouncing_balls">BouncingBalls</string>
 
 </resources>

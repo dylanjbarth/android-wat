@@ -13,7 +13,6 @@ import android.view.Menu;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.CheckBox;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -55,44 +54,24 @@ public class FormMaze extends Activity {
 		return true;
 	}
 	
-	public void moveCheckbox(View view){
-		Random rand = new Random();
-		int box = rand.nextInt(6) + 1;
-		int direction = rand.nextInt(4);
-		CheckBox c = (CheckBox) findViewById(R.id.checkBox1);
-		Animation a = AnimationUtils.loadAnimation(this, R.anim.up);
-		switch(box){
-			case 1: c = (CheckBox) findViewById(R.id.checkBox1);
-			case 2: c = (CheckBox) findViewById(R.id.CheckBox02);
-			case 3: c = (CheckBox) findViewById(R.id.CheckBox01);
-			case 4: c = (CheckBox) findViewById(R.id.CheckBox05);
-			case 5: c = (CheckBox) findViewById(R.id.CheckBox04);
-			case 6: c = (CheckBox) findViewById(R.id.CheckBox03);
-		}
-		switch(direction){
-			case 0: a = AnimationUtils.loadAnimation(this, R.anim.up);
-			case 1: a = AnimationUtils.loadAnimation(this, R.anim.down);
-			case 2: a = AnimationUtils.loadAnimation(this, R.anim.left);
-			case 3: a = AnimationUtils.loadAnimation(this, R.anim.right);
-		}
-		c.startAnimation(a);
-		updateBar(view);
-	}
-	
 	public void updateBar(View view){
 		System.out.println("updateBar()");
 		Random rand = new Random();
 		int increment = rand.nextInt(20);
 		if (increment > 8) {
 			bar.incrementProgressBy(increment);
+			Animation a = AnimationUtils.loadAnimation(this, R.anim.up);
+			bar.startAnimation(a);
 		} else {
 			bar.incrementProgressBy(-increment);
+			Animation a = AnimationUtils.loadAnimation(this, R.anim.down);
+			bar.startAnimation(a);
 		}
 		int prog = bar.getProgress();
 		int max = bar.getMax();
 		if (prog >= max){
 			Context context = getApplicationContext();
-			CharSequence text = "010101110110010100100000011000010111001001100101011011100010011101110100001000000111001101101111001000000110010001101001011001100110011001100101011100100110010101101110011101000010110000100000011110010110111101110101001000000110000101101110011001000010000001001001001011100010111000101110";
+			CharSequence text = "Test Passed. Moving On.";
 			int duration = Toast.LENGTH_SHORT;
 			Toast toast = Toast.makeText(context, text, duration);
 			toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 0);

@@ -34,6 +34,10 @@
             android:name="com.example.funwithforms.BinaryStream"
             android:label="@string/title_activity_binary_stream" >
         </activity>
+        <activity
+            android:name="com.example.funwithforms.BouncingBalls"
+            android:label="@string/title_activity_bouncing_balls" >
+        </activity>
     </application>
 
 </manifest>

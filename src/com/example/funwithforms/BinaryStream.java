@@ -86,8 +86,14 @@ public class BinaryStream extends Activity {
 		return true;
 	}
 	
-	public void conclusion(View view){
-		Intent intent = new Intent(this, MainActivity.class);
+	public void bouncingBalls(View view){
+		Context context = getApplicationContext();
+		CharSequence text = "You're a touchy human, aren't you?";
+		int duration = Toast.LENGTH_SHORT;
+		Toast toast = Toast.makeText(context, text, duration);
+		toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 0);
+		toast.show();
+		Intent intent = new Intent(this, BouncingBalls.class);
 		startActivity(intent);
 	}
 

@@ -12,8 +12,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.Gravity;
 import android.view.Menu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 @SuppressLint("HandlerLeak")
 public class CrazyName extends Activity {
@@ -28,6 +30,26 @@ public class CrazyName extends Activity {
 				view.append((CharSequence) msg.obj);
 			} else if (msg.what == 2 ){
 				view.setText("");
+				Context context = getApplicationContext();
+				int duration = Toast.LENGTH_SHORT;
+				CharSequence text = "Email successfully hacked!";
+				Toast toast = Toast.makeText(context, text, duration);
+				toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 0);
+				if (msg.arg1 == 0){						
+					toast.show();
+				} else if (msg.arg1 == 1){
+					toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 0);
+					toast.setText("Facebook successfully hacked!");
+					toast.show();
+				} else if (msg.arg1 == 2){
+					toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 0);
+					toast.setText("Twitter successfully hacked!");
+					toast.show();
+				} else {
+					toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 0);
+					toast.setText("Yes... we also found 'that' folder... ");
+					toast.show();
+				}
 			} else {
 				// alert dialog
 				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
@@ -105,6 +127,7 @@ public class CrazyName extends Activity {
 							Thread.sleep(3);
 						}
 						Message msg = handler.obtainMessage();
+						msg.arg1 = j;
 						msg.what = 2;
 						handler.sendMessage(msg); // to delete textView
 						Thread.sleep(3);
