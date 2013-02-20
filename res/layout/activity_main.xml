@@ -64,7 +64,7 @@
         android:layout_below="@+id/name"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
-        android:onClick="goCrazy"
+        android:onClick="checkSubmission"
         android:text="@string/submit" />
 
 
