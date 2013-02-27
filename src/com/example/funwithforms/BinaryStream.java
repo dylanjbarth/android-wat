@@ -88,7 +88,7 @@ public class BinaryStream extends Activity {
 	
 	public void bouncingBalls(View view){
 		Context context = getApplicationContext();
-		CharSequence text = "You're a touchy human, aren't you?";
+		CharSequence text = "Watch out for Mr. Red...";
 		int duration = Toast.LENGTH_SHORT;
 		Toast toast = Toast.makeText(context, text, duration);
 		toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 0);
